@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">newgudang</string>
+    <string name="app_name">klinik</string>
+    <string name="base_url">http://192.168.1.139/apiperpus/</string>
+    <string-array name="jenis_kelamin_array">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+    <string-array name="level_array">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "newgudang"
+rootProject.name = "klinik"
 include ':app'

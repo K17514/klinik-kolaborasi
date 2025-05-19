@@ -11,20 +11,18 @@
         android:id="@+id/imageView"
         android:layout_width="687dp"
         android:layout_height="1023dp"
-        android:alpha="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495"
-        app:srcCompat="@mipmap/pokerback" />
+        app:srcCompat="@mipmap/throne" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="228dp"
-        android:layout_height="108dp"
+        android:layout_width="298dp"
+        android:layout_height="103dp"
         android:fontFamily="@font/new_rocker"
-        android:text="Gudang Chichi"
+        android:text="Perpustakaan"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="40sp"
@@ -44,5 +42,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.358"
-        app:srcCompat="@drawable/baseline_conveyor_belt_24" />
+        app:srcCompat="@drawable/baseline_book_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

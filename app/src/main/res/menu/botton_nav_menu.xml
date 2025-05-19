@@ -5,15 +5,11 @@
         android:icon="@android:drawable/btn_star_big_on"
         android:title="Beranda" />
     <item
-        android:id="@+id/menu_data_barang"
+        android:id="@+id/menu_data_siswa"
         android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="Data Barang" />
+        android:title="Data Siswa" />
     <item
-        android:id="@+id/menu_tambah_data"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="Tambah Data" />
-    <item
-        android:id="@+id/menu_barang_keluar"
-        android:icon="@android:drawable/ic_menu_delete"
-        android:title="Barang Keluar" />
+        android:id="@+id/menu_data_buku"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Data Buku" />
 </menu>

@@ -1,0 +1,216 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@mipmap/throne"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            android:background="@drawable/custom_edittext">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:padding="24dp"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Buku"
+                    android:id="@+id/EditBuku"
+                    android:textSize="22sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/gold"/>
+
+                <!-- Label and EditText for ID -->
+
+                <EditText
+                    android:id="@+id/editId"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:enabled="false"
+                    android:visibility="gone"
+                    android:hint="ID Buku"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <!-- Label and EditText for Judul -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Judul"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:id="@+id/editJudul"
+                    android:hint="Enter Judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Label and EditText for Pengarang -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pengarang"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:id="@+id/editPengarang"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:hint="Enter Pengarang"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Label and EditText for Penerbit -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Penerbit"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:id="@+id/editPenerbit"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:hint="Enter Penerbit"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Label and EditText for Kategori -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:id="@+id/editKategori"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:hint="Enter Kategori"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Label and EditText for Deskripsi -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:id="@+id/editDeskripsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:hint="Enter Deskripsi"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Label and EditText for Stok -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Stok"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:id="@+id/editStok"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawablePadding="8dp"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:hint="Enter Stok"
+                    android:inputType="textPersonName"
+                    android:layout_marginTop="8dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"/>
+
+                <Button
+                    android:id="@+id/btnChooseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Image"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/gold"
+                    android:layout_marginTop="20dp"/>
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Update"
+                    android:textSize="18sp"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/gold"
+                    app:cornerRadius = "20dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+</LinearLayout>
