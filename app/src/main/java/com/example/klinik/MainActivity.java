@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 // Use if-else to determine which fragment to display
                 if (item.getItemId() == R.id.menu_beranda) {
                     selectedFragment = new BerandaFragment();
-                } else if (item.getItemId() == R.id.menu_data_buku) {
-                    selectedFragment = new DataBukuFragment();
+                } else if (item.getItemId() == R.id.menu_profil) {
+                    selectedFragment = new DataDokterFragment();
                 }
 
                 // Display the selected fragment

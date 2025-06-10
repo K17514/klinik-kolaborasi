@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">klinik</string>
-    <string name="base_url">http://192.168.1.139/apiperpus/</string>
+    <string name="base_url">http://192.168.1.137/apiperpus/</string>
     <string-array name="jenis_kelamin_array">
         <item>Laki-laki</item>
         <item>Perempuan</item>

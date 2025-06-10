@@ -31,8 +31,8 @@ public class MainActivity2 extends AppCompatActivity {
 
                 // Use if-else to determine which fragment to display
                 if (item.getItemId() == R.id.menu_beranda) {
-                    selectedFragment = new BerandaFragment2();
-                } else if (item.getItemId() == R.id.menu_data_buku) {
+                    selectedFragment = new BerandaFragment();
+                } else if (item.getItemId() == R.id.menu_profil) {
                     selectedFragment = new DataBukuFragment();
                 }
 
