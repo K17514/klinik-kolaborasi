@@ -53,10 +53,16 @@
 
         <ImageView
             android:id="@+id/icon_door"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="59dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:contentDescription="Logout"
+            android:focusable="true"
+            android:padding="6dp"
             android:src="@drawable/ic_exit"
             app:tint="#FFFFFF" />
+
     </LinearLayout>
 
     <!-- Buttons section -->

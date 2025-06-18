@@ -71,9 +71,11 @@ public class LoginActivity extends AppCompatActivity {
                                 // Arahkan ke activity sesuai level
                                 Intent intent;
                                 if (level == 1) {
+                                    intent = new Intent(LoginActivity.this, MainActivity.class);
+                                } else if (level == 2){
                                     intent = new Intent(LoginActivity.this, MainActivity2.class);
                                 } else {
-                                    intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent = new Intent(LoginActivity.this, MainActivity3.class);
                                 }
 
                                 startActivity(intent);
@@ -110,9 +112,11 @@ public class LoginActivity extends AppCompatActivity {
 
             Intent intent;
             if (level == 1) {
+                intent = new Intent(LoginActivity.this, MainActivity.class);
+            } else if (level == 2) {
                 intent = new Intent(LoginActivity.this, MainActivity2.class);
             } else {
-                intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent = new Intent(LoginActivity.this, MainActivity3.class);
             }
 
             startActivity(intent);

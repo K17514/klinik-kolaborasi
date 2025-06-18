@@ -28,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.klinik.LoginActivity" />
+        <activity android:name="com.example.klinik.MainActivity3" />
         <activity android:name="com.example.klinik.MainActivity2" />
         <activity android:name="com.example.klinik.MainActivity" />
         <activity android:name="com.example.klinik.EditBukuActivity" />

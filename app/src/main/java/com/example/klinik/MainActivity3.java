@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Load default fragment (Beranda)
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new BerandaFragment())
+                .replace(R.id.fragment_container, new BerandaFragment3())
                 .commit();
 
         bottomNavigationView.setSelectedItemId(R.id.menu_beranda);
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
 
                 if (item.getItemId() == R.id.menu_beranda) {
-                    selectedFragment = new BerandaFragment();
+                    selectedFragment = new BerandaFragment3();
                 } else if (item.getItemId() == R.id.menu_profil) {
                     selectedFragment = new DataDokterFragment();
                 }

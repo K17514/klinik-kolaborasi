@@ -20,7 +20,7 @@ public class BerandaFragment2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_beranda2, container, false);
+        View view = inflater.inflate(R.layout.fragment_beranda_dokter, container, false);
 
         // Inisialisasi tombol logout
         btnLogout = view.findViewById(R.id.btnLogout);
