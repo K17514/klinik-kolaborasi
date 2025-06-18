@@ -58,21 +58,25 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
-                            if (jsonObject.has("level")) {
+                            // Check if the response contains 'level' and 'id_user'
+                            if (jsonObject.has("level") && jsonObject.has("id_user")) {
                                 int level = jsonObject.getInt("level");
+                                String idUser = jsonObject.getString("id_user");  // ✅ Get id_user from response
 
-                                // Simpan session
+                                // Save to SharedPreferences
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("username", email);
+                                editor.putString("username", etEmail.getText().toString());
                                 editor.putInt("level", level);
+                                editor.putString("id_user", idUser);  // ✅ Store actual user ID
+                                editor.putBoolean("isLoggedIn", true);  // Optional: track login state
                                 editor.apply();
 
-                                // Arahkan ke activity sesuai level
+                                // Redirect based on user level
                                 Intent intent;
                                 if (level == 1) {
                                     intent = new Intent(LoginActivity.this, MainActivity.class);
-                                } else if (level == 2){
+                                } else if (level == 2) {
                                     intent = new Intent(LoginActivity.this, MainActivity2.class);
                                 } else {
                                     intent = new Intent(LoginActivity.this, MainActivity3.class);
@@ -81,15 +85,16 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             } else {
-                                Toast.makeText(LoginActivity.this, "Login gagal: level tidak ditemukan", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login gagal: data tidak lengkap", Toast.LENGTH_SHORT).show();
                             }
 
-
-                } catch (JSONException e) {
+                        } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(LoginActivity.this, "Error parsing JSON", Toast.LENGTH_SHORT).show();
                         }
                     }
+
+
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -105,6 +110,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
         if (isLoggedIn) {

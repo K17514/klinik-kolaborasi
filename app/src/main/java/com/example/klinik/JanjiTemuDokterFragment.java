@@ -1,34 +1,36 @@
 package com.example.klinik;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import android.widget.Button;
-import android.widget.SimpleAdapter;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
-import java.util.ArrayList;
-
-
-public class JanjiTemuFragment extends Fragment {
+public class JanjiTemuDokterFragment extends Fragment {
 
     private ListView listView;
     private SearchView searchView;
@@ -68,8 +70,11 @@ public class JanjiTemuFragment extends Fragment {
     }
 
     private void setupData() {
+        SharedPreferences preferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String idUser = preferences.getString("id_user", ""); // Ambil id_user dari SharedPreferences
+
         String baseUrl = getResources().getString(R.string.base_url);
-        String url = baseUrl + "get_janjitemu.php";
+        String url = baseUrl + "get_janjitemudokter.php?id_user=" + idUser;
 
         RequestQueue queue = Volley.newRequestQueue(requireContext());
 
@@ -82,7 +87,7 @@ public class JanjiTemuFragment extends Fragment {
 
                             Map<String, String> item = new HashMap<>();
                             item.put("tanggal", obj.getString("tanggal_berobat"));
-                            item.put("dokter", obj.getString("nama_d")); // Menampilkan nama_d langsung
+                            item.put("dokter", obj.getString("nama_d"));
                             item.put("keluhan", obj.getString("keluhan_pasien"));
                             item.put("status", obj.getString("status"));
 
@@ -101,6 +106,7 @@ public class JanjiTemuFragment extends Fragment {
 
         queue.add(jsonArrayRequest);
     }
+
 
     private void setupListView() {
         adapter = new SimpleAdapter(
