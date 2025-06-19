@@ -1,8 +1,12 @@
 package com.example.klinik;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import com.example.klinik.JanjiTemuAdapter;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -35,7 +39,8 @@ public class JanjiTemuFragment extends Fragment {
     private Button btnTambah;
 
     private List<Map<String, String>> janjiTemuList = new ArrayList<>();
-    private SimpleAdapter adapter;
+    private JanjiTemuAdapter adapter;
+
 
     @Nullable
     @Override
@@ -68,8 +73,12 @@ public class JanjiTemuFragment extends Fragment {
     }
 
     private void setupData() {
+        SharedPreferences prefs = requireActivity().getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+        String idUser = prefs.getString("id_user", "");
+        Log.d("JANJI_TEMU", "id_user saat ini: " + idUser);
+
         String baseUrl = getResources().getString(R.string.base_url);
-        String url = baseUrl + "get_janjitemu.php";
+        String url = baseUrl + "get_janjitemu.php?id_user=" + idUser;
 
         RequestQueue queue = Volley.newRequestQueue(requireContext());
 
@@ -81,6 +90,7 @@ public class JanjiTemuFragment extends Fragment {
                             JSONObject obj = response.getJSONObject(i);
 
                             Map<String, String> item = new HashMap<>();
+                            item.put("id_rm", obj.getString("id_rm"));
                             item.put("tanggal", obj.getString("tanggal_berobat"));
                             item.put("dokter", obj.getString("nama_d")); // Menampilkan nama_d langsung
                             item.put("keluhan", obj.getString("keluhan_pasien"));
@@ -103,15 +113,11 @@ public class JanjiTemuFragment extends Fragment {
     }
 
     private void setupListView() {
-        adapter = new SimpleAdapter(
-                getContext(),
-                janjiTemuList,
-                R.layout.itemlistjanjitemu, // layout list item kamu
-                new String[]{"tanggal", "dokter", "keluhan", "status"},
-                new int[]{R.id.txtTanggal, R.id.txtDokter, R.id.txtKeluhan, R.id.txtStatus}
-        );
+        String baseUrl = getResources().getString(R.string.base_url);
+        adapter = new JanjiTemuAdapter(getContext(), janjiTemuList, baseUrl);
         listView.setAdapter(adapter);
     }
+
 
     private void setupSearch() {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -139,13 +145,9 @@ public class JanjiTemuFragment extends Fragment {
             }
         }
 
-        adapter = new SimpleAdapter(
-                getContext(),
-                filtered,
-                R.layout.itemlistjanjitemu,
-                new String[]{"tanggal", "dokter", "keluhan", "status"},
-                new int[]{R.id.txtTanggal, R.id.txtDokter, R.id.txtKeluhan, R.id.txtStatus}
-        );
+        String baseUrl = getResources().getString(R.string.base_url);
+        adapter = new JanjiTemuAdapter(getContext(), janjiTemuList, baseUrl);
+
         listView.setAdapter(adapter);
     }
 }

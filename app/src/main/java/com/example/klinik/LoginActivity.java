@@ -58,21 +58,20 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
-                            // Check if the response contains 'level' and 'id_user'
-                            if (jsonObject.has("level") && jsonObject.has("id_user")) {
+                            if (jsonObject.has("level") && jsonObject.has("id_user") && jsonObject.has("nama")) {
                                 int level = jsonObject.getInt("level");
-                                String idUser = jsonObject.getString("id_user");  // ✅ Get id_user from response
+                                String idUser = jsonObject.getString("id_user");
+                                String nama = jsonObject.getString("nama");
 
-                                // Save to SharedPreferences
                                 SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("username", etEmail.getText().toString());
                                 editor.putInt("level", level);
-                                editor.putString("id_user", idUser);  // ✅ Store actual user ID
-                                editor.putBoolean("isLoggedIn", true);  // Optional: track login state
+                                editor.putString("id_user", idUser);
+                                editor.putString("nama", nama); // ✅ Simpan nama
+                                editor.putBoolean("isLoggedIn", true);
                                 editor.apply();
 
-                                // Redirect based on user level
                                 Intent intent;
                                 if (level == 1) {
                                     intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -95,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
 
+
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -108,15 +108,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
         if (isLoggedIn) {
             int level = sharedPreferences.getInt("level", 0);
+
 
             Intent intent;
             if (level == 1) {
@@ -131,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
     }
+
 
 
 }

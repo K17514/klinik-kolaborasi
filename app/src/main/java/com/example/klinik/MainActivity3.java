@@ -33,7 +33,7 @@ public class MainActivity3 extends AppCompatActivity {
                 if (item.getItemId() == R.id.menu_beranda) {
                     selectedFragment = new BerandaFragment3();
                 } else if (item.getItemId() == R.id.menu_profil) {
-                    selectedFragment = new DataDokterFragment();
+                    selectedFragment = new ProfilPasienFragment();
                 }
 
                 if (selectedFragment != null) {
